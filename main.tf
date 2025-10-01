@@ -5,7 +5,7 @@ locals {
 	config_string	= var.config_string
 }
 
-resource "null_resource" "vyos_config {
+resource "null_resource" "vyos_config" {
 	connection {
 		type		= "ssh"
 		host		= local.mgmt_address
