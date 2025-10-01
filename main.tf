@@ -18,13 +18,13 @@ resource "null_resource" "vyos_config" {
 	}
 	provisioner "file" {
 		content		= local.config_string
-		destination	= local.mgmt_address
+		destination	= "/home/vyos/config.cfg"
 	}
 	provisioner "remote-exec" {
 		inline = [<<-EOT
 			#!/bin/vbash
 			source /opt/vyatta/etc/functions/script-template
-			source ~/config.cfg
+			source /home/vyos/config.cfg
 			commit
 			save
 		EOT
