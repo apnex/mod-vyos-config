@@ -18,7 +18,7 @@ resource "null_resource" "vyos_config" {
 	}
 	provisioner "file" {
 		content		= local.config_string
-		mgmt_address	= local.mgmt_address
+		destination	= local.mgmt_address
 	}
 	provisioner "remote-exec" {
 		inline = [<<-EOT
